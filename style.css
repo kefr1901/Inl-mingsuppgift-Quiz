@@ -1,0 +1,49 @@
+body {
+padding: 0;
+margin: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+width: 100vw;
+height: 100vh;
+}
+
+.container {
+    width: 800px;
+    max-width: 80%;
+    background-color: aquamarine;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 0 10px 1px;
+}
+
+.btn-grid {
+    display: grid;
+    grid-template-columns: repeat(2, auto);
+    gap: 10px;
+    margin: 20px 0;
+}
+.btn {
+    background-color: aqua;
+    border: 1px solid;
+    border-radius: 3px;
+    padding: 5px 10px;
+    color: black;
+    
+}
+
+.start-btn-btn, .next-btn-btn{
+
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+footer {
+    display: flex;
+    margin: 20px;
+    justify-content: center;
+    align-items: center
+}
