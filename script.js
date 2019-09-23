@@ -10,6 +10,7 @@ class Quiz {
     }
     isChecked() {
 
+        // kolla vilken som är ikryssad
 
 
 
@@ -30,6 +31,8 @@ class Quiz {
 
     }
 
+        // hämtar in 
+        
     nextQuestion() {
 
         document.getElementById("question").innerHTML = quiz.questions[quiz.currentQuestion].question;
@@ -57,7 +60,7 @@ quiz.questions.push(question1, question2, question3, question4); //pushar in fr�
 quiz.nextQuestion();
 
 
-// kolla vilken som är ikryssad
+
 
 
 
