@@ -10,7 +10,7 @@ class Question{
 }
 
 
-let question1 = new Question(
+let question1 = new Question( 
  "fruits",
  "what colour is a banana?",
  ["green", "black", "white", "yellow"],

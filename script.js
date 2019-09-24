@@ -10,9 +10,8 @@ class Quiz {
     }
     isChecked() {
 
-        // kolla vilken som är ikryssad
-
-
+        // kolla vilken checkbox som är ikryssad och om det är rätt svar, fortsätter till nästa fråga
+        //med hjälp av att this.currentQuestion byter value från 0-1 vid första frågan. 
 
         if (this.currentQuestion + 1 >= this.questions.length) {
             console.log("DU KLARADE DET");
@@ -25,14 +24,10 @@ class Quiz {
             }
         }
 
-
-
-
-
     }
 
-        // hämtar in 
-        
+    // hämtar in 
+
     nextQuestion() {
 
         document.getElementById("question").innerHTML = quiz.questions[quiz.currentQuestion].question;
@@ -51,11 +46,11 @@ class Quiz {
 
 let name = prompt("skriv in ditt namn för att starta spelet!"); //frågar om namnet och ger den en variabel
 
-let quiz = new Quiz(name); // sparar namnet i klassen name
+let quiz = new Quiz(name); // sparar namnet i klassen name, gör inget annat med den
 
-quiz.questions.push(question1, question2, question3, question4); //pushar in frågorna i classen
+quiz.questions.push(question1, question2, question3, question4); //pushar in frågorna i classen från objektet med frågor.
 
-// kör spelet första frågan
+// kör spelet, för att få igång första frågan
 
 quiz.nextQuestion();
 
