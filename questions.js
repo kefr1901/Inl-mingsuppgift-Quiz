@@ -4,7 +4,7 @@ class Question{
         this.category = category;
         this.question = question;
         this.answers = answers;
-        this.correct = correct
+        this.correct = correct;
 
     }
 }
@@ -37,3 +37,5 @@ let question2 = new Question(
     ["A school", "A phone", "A carmodel", "A person"],
     4
    );
+
+   
