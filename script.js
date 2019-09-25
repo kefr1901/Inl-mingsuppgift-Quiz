@@ -5,6 +5,7 @@ class Quiz {
         this.questions = [];
         this.correct = 0;
         this.currentQuestion = 0;
+        this.howManyQuestions_answer;
 
 
     }
@@ -30,6 +31,7 @@ class Quiz {
     
     nextQuestion() {
         this.whichQuestion();
+        
 
         document.getElementById("question").innerHTML = quiz.questions[quiz.currentQuestion].question;
         document.getElementById("a1").innerHTML = quiz.questions[quiz.currentQuestion].answers[0];
@@ -43,16 +45,31 @@ class Quiz {
     whichQuestion(){
         document.getElementById("progress").innerHTML = "fråga " + (this.currentQuestion +1) + " av " + this.questions.length;
     }
+
+    howManyQuestions(){
+        if (this.howManyQuestions_answer <= this.questions.length){
+            this.questions = this.questions.slice(0, (this.howManyQuestions_answer));
+
+        this.whichQuestion();
+        }
+    }
 }
  
 
 
 
 
+
+
+
+
 let name = prompt("skriv in ditt namn för att starta spelet!"); //frågar om namnet och ger den en variabel
-
-
 let quiz = new Quiz(name); // sparar namnet i klassen name, gör inget annat med den
+quiz.howManyQuestions_answer = Number(prompt("hur många frågor vill du svara på?")); 
+alert("hej" + quiz.name + "du har valt att spela med " + quiz.howManyQuestions_answer +" tryck för att starta");
+
+
+
 
 
 quiz.questions.push(question1, question2, question3, question4); //pushar in frågorna i classen Quiz från objektet 
@@ -60,8 +77,10 @@ quiz.questions.push(question1, question2, question3, question4); //pushar in fr�
 
 // kör spelet, för att få igång första frågan
 
-
+quiz.howManyQuestions();
 quiz.nextQuestion();
+
+
 
 
 
