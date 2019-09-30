@@ -12,27 +12,33 @@
 </head>
 
 <body>
-    
-        <div class="container">
-            <div id="question-container"></div>
-            <div id="question">frågor</div>
-            <div id="answer-btns" class="btn-grid">
-                <label> <input type="checkbox" id="checkbox1"><span id="a1">fråga 1</span></label>
-                <label> <input type="checkbox" id="checkbox2"><span id="a2">fråga 1</span></label>
-                <label> <input type="checkbox" id="checkbox3"><span id="a3">fråga 1</span></label>
-                <label> <input type="checkbox" id="checkbox4"><span id="a4">fråga 1</span></label>
-            </div>
 
-            <button id="next-btn" class="next-btn-btn" onclick="quiz.isChecked()">Next</button>
+    <div class="container">
+        <div id="question-container"></div>
+         <p id="category"></p>
+        <div id="question">frågor</div> 
+        <div id="answer-btns" class="btn-grid">
+            <label> <input type="checkbox" id="checkbox0"><span id="a1">fråga 1</span></label>
+            <label> <input type="checkbox" id="checkbox1"><span id="a2">fråga 2</span></label>
+            <label> <input type="checkbox" id="checkbox2"><span id="a3">fråga 3</span></label>
+            <label> <input type="checkbox" id="checkbox3"><span id="a4">fråga 4</span></label>
         </div>
 
-        <div>
-            <footer>
-                <p id="progress">Question x of y.</p>
-            </footer>
-        </div>
-        <script src="questions.js"></script>
-        <script src="script.js"></script>
+        <button id="next-btn" class="next-btn-btn" onclick="quiz.isChecked()">Next</button>
+         <p id="progress">Question x of y.</p>
+
+
+        
+    </div>
+
+    <div>
+        <footer>
+           
+        </footer>
+    </div>
+    <script src="readQuestions.js"></script>
+    <script src="questions.js"></script>
+    <script src="script.js"></script>
 </body>
 
 </html>
