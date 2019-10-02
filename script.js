@@ -4,15 +4,13 @@ class Quiz {
         this.name = name;
         this.questions = [];
         this.correct = 0;
-        this.currentQuestion = 0;
+        this.currentQuestion = ;
         this.howManyQuestions_answer;
         this.count = 0;
     }
 
-    
-    isChecked() {
-        
 
+    isChecked() {
 
         // kolla vilken checkbox som är ikryssad och om det är rätt svar, fortsätter till nästa fråga
         //med hjälp av att this.currentQuestion byter value från 0-1 vid första frågan. 
@@ -32,31 +30,29 @@ class Quiz {
                     index += 1;
                     if (index == 2) {
                         console.log("RÄTT SVAR");
-                        this.currentQuestion++;
-                        this.nextQuestion();
-                        
+                        //this.currentQuestion++;
+                        //this.nextQuestion();
+
                     }
 
 
 
                 } else if ((document.getElementById("checkbox" + (argument[i])).checked && argument.length == 1)) {
-                    this.currentQuestion++;
-                    this.nextQuestion();
-                    
+                    //this.currentQuestion++;
+                    //this.nextQuestion();
+
 
                 }
 
             }
 
 
-            /*if (document.getElementById("checkbox" + (this.questions[this.currentQuestion].correct[0])).checked) {
-                console.log("RÄTT SVAR");
+            document.getElementById("next-btn").addEventListener("click", function () {
+
                 this.currentQuestion++;
                 this.nextQuestion();
 
-
-
-            }*/
+            })
         }
 
     }
@@ -65,30 +61,23 @@ class Quiz {
 
     nextQuestion() {
         this.whichQuestion();
-        
+
 
         let checkboxes = Array.from(document.getElementsByClassName("checkboxes"));
         checkboxes.forEach((checkbox) => {
-        if (checkbox.type === "checkbox" && checkbox.checked === true) {
-            checkbox.click();
-        
-        }
+            if (checkbox.type === "checkbox" && checkbox.checked === true) {
+                checkbox.click();
 
+            }
 
-    
-        
-            
+            document.getElementById("question").innerHTML = quiz.questions[quiz.currentQuestion].question;
+            document.getElementById("category").innerHTML = "Din kategori är: " + quiz.questions[quiz.currentQuestion].category;
+            document.getElementById("a1").innerHTML = quiz.questions[quiz.currentQuestion].answers[0];
+            document.getElementById("a2").innerHTML = quiz.questions[quiz.currentQuestion].answers[1];
+            document.getElementById("a3").innerHTML = quiz.questions[quiz.currentQuestion].answers[2];
+            document.getElementById("a4").innerHTML = quiz.questions[quiz.currentQuestion].answers[3];
 
-
-
-        document.getElementById("question").innerHTML = quiz.questions[quiz.currentQuestion].question;
-        document.getElementById("category").innerHTML = "Din kategori är: " + quiz.questions[quiz.currentQuestion].category;
-        document.getElementById("a1").innerHTML = quiz.questions[quiz.currentQuestion].answers[0];
-        document.getElementById("a2").innerHTML = quiz.questions[quiz.currentQuestion].answers[1];
-        document.getElementById("a3").innerHTML = quiz.questions[quiz.currentQuestion].answers[2];
-        document.getElementById("a4").innerHTML = quiz.questions[quiz.currentQuestion].answers[3];
-
-    })
+        })
     }
 
     whichQuestion() {
@@ -106,22 +95,22 @@ class Quiz {
     }
 
     checkboxDisable() {
-        
+
         //lyssna på om någon klickar på checkbox 
         let checkboxes = Array.from(document.getElementsByClassName("checkboxes"));
-        
 
+        // kollar vilken som är checkad och 
         checkboxes.forEach((checkbox) => {
-            checkbox.addEventListener("click", function () { 
+            checkbox.addEventListener("click", function () {
                 quiz.count = 0;
                 for (let i = 0; i < checkboxes.length; i++) {
                     if (checkboxes[i].type === "checkbox" && checkboxes[i].checked === true) {
-                        quiz.count++;                           
+                        quiz.count++;
                     }
                 }
-                if(quiz.count >= quiz.questions[quiz.currentQuestion].correct.length) {
+                if (quiz.count >= quiz.questions[quiz.currentQuestion].correct.length) {
                     checkboxes.forEach((checkbox) => {
-                        if(!checkbox.checked) {
+                        if (!checkbox.checked) {
                             checkbox.disabled = true;
                         }
                     })
@@ -130,23 +119,10 @@ class Quiz {
                         checkbox.disabled = false;
                     })
                 }
-                console.log(quiz.count);  
+
             });
         });
 
-        /*let checkboxes = document.getElementsByClassName("checkboxes").addEventListener("click", function () {
-            let count = 0;
-
-            for (let i = 0; i < checkboxes.length; i++) {
-                if (checkboxes[i].type === "checkbox" && checkboxes[i].checked === true) {
-                    count++;
-
-                    console.log(count);
-                    
-                }
-            }
-
-        });*/
 
     }
 
@@ -194,11 +170,14 @@ for (let question of json) {
 quiz.howManyQuestions();
 quiz.nextQuestion();
 
-setTimeout(() => {
-    quiz.checkboxDisable();
-}, 2000)
 
 
+document.getElementById("next-btn").addEventListener("click", function () {
+
+    quiz.currentQuestion++;
+    quiz.nextQuestion();
+
+})
 
 
 
