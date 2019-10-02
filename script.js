@@ -65,6 +65,21 @@ class Quiz {
 
     nextQuestion() {
         this.whichQuestion();
+        
+
+        let checkboxes = Array.from(document.getElementsByClassName("checkboxes"));
+        checkboxes.forEach((checkbox) => {
+        if (checkbox.type === "checkbox" && checkbox.checked === true) {
+            checkbox.click();
+        
+        }
+
+
+    
+        
+            
+
+
 
         document.getElementById("question").innerHTML = quiz.questions[quiz.currentQuestion].question;
         document.getElementById("category").innerHTML = "Din kategori är: " + quiz.questions[quiz.currentQuestion].category;
@@ -73,7 +88,7 @@ class Quiz {
         document.getElementById("a3").innerHTML = quiz.questions[quiz.currentQuestion].answers[2];
         document.getElementById("a4").innerHTML = quiz.questions[quiz.currentQuestion].answers[3];
 
-
+    })
     }
 
     whichQuestion() {
@@ -94,7 +109,7 @@ class Quiz {
         
         //lyssna på om någon klickar på checkbox 
         let checkboxes = Array.from(document.getElementsByClassName("checkboxes"));
-        console.log(checkboxes);
+        
 
         checkboxes.forEach((checkbox) => {
             checkbox.addEventListener("click", function () { 
@@ -137,7 +152,7 @@ class Quiz {
 
 }
 
-countBoi = 0;
+
 
 
 
