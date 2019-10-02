@@ -9,8 +9,20 @@ height: 100vh;
 background-color: lightblue;
 }
 
+
+
+#startmenu{
+    width: 200px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+}
+
 .container {
-    width: 800px;
+    width: 400px;
+    height: 200px;
     max-width: 80%;
     background-color: aquamarine;
     border-radius: 4px;
@@ -24,14 +36,7 @@ background-color: lightblue;
     gap: 10px;
     margin: 20px 0;
 }
-.btn {
-    background-color: aqua;
-    border: 1px solid;
-    border-radius: 3px;
-    padding: 5px 10px;
-    color: black;
-    
-}
+
 
 .start-btn-btn, .next-btn-btn{
 
@@ -50,5 +55,7 @@ footer {
 }
 
 #next-btn{
+    border-color: green;
+  
     
 }

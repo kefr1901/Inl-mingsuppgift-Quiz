@@ -6,22 +6,25 @@ class Quiz {
         this.correct = 0;
         this.currentQuestion = 0;
         this.howManyQuestions_answer;
-
-
+        this.count = 0;
     }
+
+    
     isChecked() {
+        
+
 
         // kolla vilken checkbox som är ikryssad och om det är rätt svar, fortsätter till nästa fråga
         //med hjälp av att this.currentQuestion byter value från 0-1 vid första frågan. 
 
         if (this.currentQuestion + 1 >= this.questions.length) {
-            console.log("DU KLARADE DET");
+            console.log("DU KLARADE DET"); //kollar när spelet är slut 
         } else {
 
             let argument = (this.questions[this.currentQuestion].correct);
             let index = 0;
             for (let i = 0; i < argument.length; i++) {
-                
+
 
                 if (document.getElementById("checkbox" + (argument[i])).checked && argument.length == 2) {
 
@@ -31,6 +34,7 @@ class Quiz {
                         console.log("RÄTT SVAR");
                         this.currentQuestion++;
                         this.nextQuestion();
+                        
                     }
 
 
@@ -38,10 +42,9 @@ class Quiz {
                 } else if ((document.getElementById("checkbox" + (argument[i])).checked && argument.length == 1)) {
                     this.currentQuestion++;
                     this.nextQuestion();
+                    
 
                 }
-
-                
 
             }
 
@@ -62,8 +65,6 @@ class Quiz {
 
     nextQuestion() {
         this.whichQuestion();
-        
-
 
         document.getElementById("question").innerHTML = quiz.questions[quiz.currentQuestion].question;
         document.getElementById("category").innerHTML = "Din kategori är: " + quiz.questions[quiz.currentQuestion].category;
@@ -85,8 +86,60 @@ class Quiz {
 
             this.whichQuestion();
         }
+
+
     }
+
+    checkboxDisable() {
+        
+        //lyssna på om någon klickar på checkbox 
+        let checkboxes = Array.from(document.getElementsByClassName("checkboxes"));
+        console.log(checkboxes);
+
+        checkboxes.forEach((checkbox) => {
+            checkbox.addEventListener("click", function () { 
+                quiz.count = 0;
+                for (let i = 0; i < checkboxes.length; i++) {
+                    if (checkboxes[i].type === "checkbox" && checkboxes[i].checked === true) {
+                        quiz.count++;                           
+                    }
+                }
+                if(quiz.count >= quiz.questions[quiz.currentQuestion].correct.length) {
+                    checkboxes.forEach((checkbox) => {
+                        if(!checkbox.checked) {
+                            checkbox.disabled = true;
+                        }
+                    })
+                } else {
+                    checkboxes.forEach((checkbox) => {
+                        checkbox.disabled = false;
+                    })
+                }
+                console.log(quiz.count);  
+            });
+        });
+
+        /*let checkboxes = document.getElementsByClassName("checkboxes").addEventListener("click", function () {
+            let count = 0;
+
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].type === "checkbox" && checkboxes[i].checked === true) {
+                    count++;
+
+                    console.log(count);
+                    
+                }
+            }
+
+        });*/
+
+    }
+
 }
+
+countBoi = 0;
+
+
 
 class Question {
     constructor(category, question, answers, correct) {
@@ -102,14 +155,10 @@ class Question {
 
 
 
-
-
 let name = prompt("skriv in ditt namn för att starta spelet!"); //frågar om namnet och ger den en variabel
 let quiz = new Quiz(name); // sparar namnet i klassen name, gör inget annat med den
 quiz.howManyQuestions_answer = Number(prompt("hur många frågor vill du svara på?"));
 alert("hej" + quiz.name + "du har valt att spela med " + quiz.howManyQuestions_answer + " tryck för att starta");
-
-
 
 let json = getJSON("http://www.mocky.io/v2/5d91e88c310000e08410cbbb")
 
@@ -118,43 +167,6 @@ for (let question of json) {
     quiz.questions.push(new Question(question.category, question.question, question.answers, question.correct));
 
 }
-/* FÖRSÖK FÅ CHECKBOX == ANTAL RÄtt SVAR
-    
-     //console.log(document.getElementsByName("checkboxes"));
-     let checkbox0 = document.getElementById("checkbox0")
-     let checkbox1 = document.getElementById("checkbox1")
-     let checkbox2 = document.getElementById("checkbox2")
-     let checkbox3 = document.getElementById("checkbox3")
-
-     checkbox0.addEventListener("change", function(){
-
-     })
-
-     
-     
-
-    
-/*
-         console.log("hej");
-        let count = 0;
-        let max = (this.questions[this.currentQuestion].correct.length);
-        
-        for (i = 0; i < checkboxes.length; i += 1) {
-            if (checkboxes[i].checked) {
-                count = count + 1;
-                
-            }
-        }	 
-        if (count > max ) {
-            alert("För många alternativ valda" + max + "försök igen");
-            
-        }
-    });
-
-
-
-
-
 
 
 
@@ -163,9 +175,16 @@ for (let question of json) {
 //med frågor fråm klassen questions.
 
 // kör spelet, för att få igång första frågan
-*/
+
 quiz.howManyQuestions();
 quiz.nextQuestion();
+
+setTimeout(() => {
+    quiz.checkboxDisable();
+}, 2000)
+
+
+
 
 
 

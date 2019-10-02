@@ -1,0 +1,39 @@
+
+
+[
+    {
+        "category": "Colours",
+        "question": "whar colour is a banana",
+        "answers": [
+            "white", "black", "red", "yellow"
+        ],
+        "correct": [3]
+    },
+    {
+        "category": "Math",
+        "question": "What is 5*5?",
+        "answers": [
+            "25", "26", "10", "35"
+        ],
+        "correct": [0]
+
+    },
+    {
+    "category": "IT",
+        "question": "Who is Bill Gates?",
+        "answers": [
+            "A random person", "Founder of Microsoft", "Founder of the keyboard", "The person who invented internet"
+        ],
+        "correct": [1]
+    },
+    {
+        "category": "Schools",
+            "question": "What is Nackademin?",
+            "answers": [
+                "A school", "The swedish nationalteam areana", "A pub located in Stockholm", "The carmodel name on the new Volvo?"
+            ],
+            "correct": [0]
+        }
+]
+
+
