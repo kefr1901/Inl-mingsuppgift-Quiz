@@ -1,61 +1,125 @@
+
+
 class Quiz {
     constructor(name) {
 
         this.name = name;
         this.questions = [];
         this.correct = 0;
-        this.currentQuestion = ;
-        this.howManyQuestions_answer;
+        this.currentQuestion = 0;
+        this.howManyQuestions_answer = 0;
         this.count = 0;
+        this.point = 0;
+
+
     }
 
 
-    isChecked() {
-
-        // kolla vilken checkbox som är ikryssad och om det är rätt svar, fortsätter till nästa fråga
-        //med hjälp av att this.currentQuestion byter value från 0-1 vid första frågan. 
-
-        if (this.currentQuestion + 1 >= this.questions.length) {
-            console.log("DU KLARADE DET"); //kollar när spelet är slut 
-        } else {
-
-            let argument = (this.questions[this.currentQuestion].correct);
-            let index = 0;
-            for (let i = 0; i < argument.length; i++) {
+    checkboxAnswer() {
 
 
-                if (document.getElementById("checkbox" + (argument[i])).checked && argument.length == 2) {
+        let answers = Array.from(document.getElementsByClassName("checkboxes"));
 
+        answers = answers.map(function (checkbox) {
+            return checkbox.checked
+        });
 
-                    index += 1;
-                    if (index == 2) {
-                        console.log("RÄTT SVAR");
-                        //this.currentQuestion++;
-                        //this.nextQuestion();
+        if (answers.filter(function (answer) {
+            return answer == true
+        }).length == quiz.questions[quiz.currentQuestion].correct.length) {
 
-                    }
+            quiz.questions[quiz.currentQuestion].correct.forEach(function (i) {
+                if (answers[i]) {
 
+                    quiz.point++
 
-
-                } else if ((document.getElementById("checkbox" + (argument[i])).checked && argument.length == 1)) {
-                    //this.currentQuestion++;
-                    //this.nextQuestion();
-
+                    document.getElementById("points").innerHTML = "du har " + quiz.point + "poäng";
 
                 }
 
-            }
-
-
-            document.getElementById("next-btn").addEventListener("click", function () {
-
-                this.currentQuestion++;
-                this.nextQuestion();
-
             })
+        
+        
+        }
+    
+    } 
+
+        endGame(){
+
+            if (this.currentQuestion +1 >= this.questions.length) {
+                console.log("DU KLARADE DET"); //kollar när spelet är slut 
+
         }
 
-    }
+        }
+
+
+
+
+
+    /* let score = 0;
+     for(let i =0; i < 4; ++i){
+
+         let correctAnswer = this.questions[this.currentQuestion].correct.checkboxes[i] ==
+             this.questions[this.currentQuestion].answers[i].correct;
+
+             if(correctAnswer && this.answers[this.currentQuestion].checkboxes[i] ){
+                 ++score;
+             }else if(!correctAnswer && this.answers[this.currentQuestion].checkboxes[i]){
+                 --score;
+
+             }
+             
+     }
+
+     return score;
+
+     
+
+
+
+     /*
+     // kolla vilken checkbox som är ikryssad och om det är rätt svar, fortsätter till nästa fråga
+     //med hjälp av att this.currentQuestion byter value från 0-1 vid första frågan. 
+     
+     if (this.currentQuestion +1 >= this.questions.length) {
+         console.log("DU KLARADE DET"); //kollar när spelet är slut 
+     } else {
+         
+         let argument = (this.questions[this.currentQuestion].correct);
+         let index = 0;
+         for (let i = 0; i < argument.length; i++) {
+             
+
+                 if (document.getElementById("checkbox" + (argument[i])).checked && argument.length == 2) {
+                 
+
+                 index += 1;
+                 if (index == 2) {
+                 console.log("RÄTT SVAR2");
+                 //this.currentQuestion++;
+                 //this.nextQuestion();
+
+                 }
+
+             
+             } else if ((document.getElementById("checkbox" + (argument[i])).checked && argument.length == 1)) {
+                 //this.currentQuestion++;
+                 //this.nextQuestion();
+                 console.log("RÄTT SVAR3");
+
+                
+             }
+
+         }
+
+
+         
+     }*/
+
+
+
+
 
     // hämtar in 
 
@@ -63,6 +127,8 @@ class Quiz {
         this.whichQuestion();
 
 
+
+        //tar bort checkade checkboxes inför nästa fråga
         let checkboxes = Array.from(document.getElementsByClassName("checkboxes"));
         checkboxes.forEach((checkbox) => {
             if (checkbox.type === "checkbox" && checkbox.checked === true) {
@@ -76,15 +142,20 @@ class Quiz {
             document.getElementById("a2").innerHTML = quiz.questions[quiz.currentQuestion].answers[1];
             document.getElementById("a3").innerHTML = quiz.questions[quiz.currentQuestion].answers[2];
             document.getElementById("a4").innerHTML = quiz.questions[quiz.currentQuestion].answers[3];
-
         })
+        /*if (quiz.currentQuestion == quiz.questions.length){
+            for(let currentQuestion = 0; currentQuestion < quiz.questions.length; ++currentQuestion){
+                let score = quiz.isChecked(currentQuestion);
+                console.log(score);
+            }
+        }*/
     }
 
-    whichQuestion() {
+    whichQuestion() { //håller redo på x på längden av frågor
         document.getElementById("progress").innerHTML = "fråga " + (this.currentQuestion + 1) + " av " + this.questions.length;
     }
 
-    howManyQuestions() {
+    howManyQuestions() { //frågar hur många frågor användaren vill använda och slicar arreyern med frågor. 
         if (this.howManyQuestions_answer <= this.questions.length) {
             this.questions = this.questions.slice(0, (this.howManyQuestions_answer));
 
@@ -141,17 +212,60 @@ class Question {
         this.correct = correct;
 
     }
+} //starta spelet
+
+function checkAnswer() {
+
+    let checkboxes1 = Array.from(document.getElementsByClassName("checkboxes")).map((checkbox1) => {
+        return checkbox1.checked
+    });
+
+    let correct = quiz.questions[quiz.currentQuestion].correct.map((questions) => {
+        return questions.correct
+    });
+
+    return JSON.stringify(checkboxes1) == JSON.stringify(correct)
+    console.log(questions.correct);
 }
 
 
 
 
-let name = prompt("skriv in ditt namn för att starta spelet!"); //frågar om namnet och ger den en variabel
-let quiz = new Quiz(name); // sparar namnet i klassen name, gör inget annat med den
-quiz.howManyQuestions_answer = Number(prompt("hur många frågor vill du svara på?"));
-alert("hej" + quiz.name + "du har valt att spela med " + quiz.howManyQuestions_answer + " tryck för att starta");
 
-let json = getJSON("http://www.mocky.io/v2/5d91e88c310000e08410cbbb")
+document.addEventListener("DOMContentLoaded", function (event) {
+    document.getElementById("btn_start").addEventListener("click", function () {
+
+        let name = document.getElementById("name").value;
+        document.getElementById("playername").innerHTML = "Spelare:" + name;
+
+        quiz.howManyQuestions_answer = document.getElementById("howManyQ").value;
+        document.getElementById("startgame").style.display = "none";
+        document.getElementById("showquestion").style.display = "block";
+
+
+
+        quiz.howManyQuestions();
+        quiz.nextQuestion();
+
+
+
+
+    })
+
+
+})
+
+
+
+
+
+
+let quiz = new Quiz(name); // sparar namnet i klassen name, gör inget annat med den
+
+//let quiz1 = new Quiz(howManyQuestions_answer);
+//alert("hej" + quiz.name + "du har valt att spela med " + quiz.howManyQuestions_answer + " tryck för att starta");
+
+let json = getJSON("http://www.mocky.io/v2/5d95f1cc3300005f982f8ded")
 
 for (let question of json) {
 
@@ -167,15 +281,23 @@ for (let question of json) {
 
 // kör spelet, för att få igång första frågan
 
-quiz.howManyQuestions();
+/*quiz.howManyQuestions();
 quiz.nextQuestion();
+quiz.checkboxDisable();*/
+
+
 
 
 
 document.getElementById("next-btn").addEventListener("click", function () {
 
+    quiz.checkboxAnswer();
+    quiz.checkboxDisable();
     quiz.currentQuestion++;
     quiz.nextQuestion();
+    quiz.endGame();
+
+
 
 })
 

@@ -22,12 +22,13 @@ background-color: lightblue;
 
 .container {
     width: 400px;
-    height: 200px;
+    height: 400px;
     max-width: 80%;
-    background-color: aquamarine;
+    background-color: white;
     border-radius: 4px;
     padding: 10px;
     box-shadow: 0 0 10px 1px;
+    
 }
 
 .btn-grid {
@@ -57,5 +58,12 @@ footer {
 #next-btn{
     border-color: green;
   
+    
+}
+#showquestion{
+    display:none;
+}
+
+#startgame{
     
 }

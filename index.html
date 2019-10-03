@@ -15,29 +15,39 @@
 
     <div class="container">
         <div id="question-container"></div>
-         <p id="category"></p>
-        <div id="question">frågor</div> 
-        <div id="answer-btns" class="btn-grid">
+            <div id="startgame"><input type="text" id="name" placeholder="skriv in ditt namn">
+                <input type="number" id="howManyQ" min="1" max="10">
+                <button id="btn_start">Startgame</button>
+            </div>
+            <div id="showquestion">
+                <p id="playername"></p>
+                <p id="category"></p>
+                <div id="question">frågor</div>
+            <div id="answer-btns" class="btn-grid">
             <label> <input type="checkbox" class="checkboxes" id="checkbox0"><span id="a1">fråga 1</span></label>
             <label> <input type="checkbox" class="checkboxes" id="checkbox1"><span id="a2">fråga 2</span></label>
             <label> <input type="checkbox" class="checkboxes" id="checkbox2"><span id="a3">fråga 3</span></label>
             <label> <input type="checkbox" class="checkboxes" id="checkbox3"><span id="a4">fråga 4</span></label>
-        </div>
+            </div>
+        
+    
 
         <button id="next-btn" class="next-btn-btn">Next</button>
-         <p id="progress">Question x of y.</p>
+        <p id="progress">Question x of y.</p>
+        <p id="points">Points x of y</p>
+
+    </div>
 
 
-        
     </div>
 
     <div>
         <footer>
-           
+
         </footer>
     </div>
     <script src="readQuestions.js"></script>
-    
+
     <script src="script.js"></script>
 </body>
 
