@@ -6,7 +6,8 @@ justify-content: center;
 align-items: center;
 width: 100vw;
 height: 100vh;
-background-color: lightblue;
+background-image: url("https://wallpaperplay.com/walls/full/9/3/1/15813.jpg");
+opacity: 0,2;
 }
 
 
@@ -21,13 +22,15 @@ background-color: lightblue;
 }
 
 .container {
+    text-align: center;
     width: 400px;
     height: 400px;
     max-width: 80%;
-    background-color: white;
+    background-color: lightslategray;
     border-radius: 4px;
     padding: 10px;
     box-shadow: 0 0 10px 1px;
+    opacity: 0,5;
     
 }
 
@@ -57,13 +60,58 @@ footer {
 
 #next-btn{
     border-color: green;
-  
-    
+  float: left;
+  margin-top: 15px;
+
 }
 #showquestion{
     display:none;
 }
 
 #startgame{
+    
+}
+
+img {
+    opacity: 0.5;
+    filter: alpha(opacity=50)
+
+}
+
+img:hover {
+    opacity: 1.0;
+    filter: alpha(opacity=100);
+
+}
+
+#endgame{
+    display: none;
+}
+
+#end-btn{
+    
+    
+    font-size: 1.5rem;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#show-points{
+    text-align: center;
+    display: none;
+    width: 400px;
+    height: 400px;
+    max-width: 80%;
+    background-color: lightslategray;
+    border-radius: 4px;
+    padding: 10px;
+    box-shadow: 0 0 10px 1px;
+    opacity: 0,2;
+    
+}
+
+#playAgain{
     
 }
