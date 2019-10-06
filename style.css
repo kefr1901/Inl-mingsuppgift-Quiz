@@ -1,117 +1,110 @@
+
 body {
-padding: 0;
-margin: 0;
-display: flex;
-justify-content: center;
 align-items: center;
-width: 100vw;
-height: 100vh;
-background-image: url("https://wallpaperplay.com/walls/full/9/3/1/15813.jpg");
-opacity: 0,2;
+margin: auto;
+background-image: url("http://www.spinningplategames.com/wp-content/uploads/2017/08/Site-Background.jpg");
+  
 }
 
+.container{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%; 
+    left: 50%;
+    background-color: rgba(119, 116, 116, 0.699);
+    text-align: center;
+    width: 80%;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 0 0 10px 1px;
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: white;
+    max-width: 400px;
+    
+   
+}
 
 
 #startmenu{
-    width: 200px;
-    height: 600px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: lightblue;
-}
-
-.container {
+    background-color: rgba(119, 116, 116, 0.699);
     text-align: center;
-    width: 400px;
-    height: 400px;
-    max-width: 80%;
-    background-color: lightslategray;
-    border-radius: 4px;
-    padding: 10px;
+    margin: 20px;
+    border-radius: 30px;
+    padding: 20px;
     box-shadow: 0 0 10px 1px;
-    opacity: 0,5;
-    
-}
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    }
 
 .btn-grid {
     display: grid;
     grid-template-columns: repeat(2, auto);
-    gap: 10px;
+    gap: 15px;
     margin: 20px 0;
+    
 }
 
+#next-btn {
+position: relative;
+border-color: rgba(190, 184, 184, 0.664);
+background-color: rgb(23, 41, 100);
+color: white;
+font-family: Georgia, 'Times New Roman', Times, serif;
+font-size: 2rem;
+margin-top: 0;
 
-.start-btn-btn, .next-btn-btn{
 
-    font-size: 1.5rem;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-footer {
-    display: flex;
-    margin: 20px;
-    justify-content: center;
-    align-items: center
-}
 
-#next-btn{
-    border-color: green;
-  float: left;
-  margin-top: 15px;
 
 }
 #showquestion{
     display:none;
 }
 
-#startgame{
-    
-}
 
-img {
-    opacity: 0.5;
-    filter: alpha(opacity=50)
-
-}
-
-img:hover {
-    opacity: 1.0;
-    filter: alpha(opacity=100);
-
-}
 
 #endgame{
     display: none;
 }
 
-#end-btn{
-    
-    
-    font-size: 1.5rem;
-    padding: 10px 20px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
 #show-points{
+    position: absolute;
+    transform: translate(-50%, -50%);
+    top: 50%; 
+    left: 50%;
+    background-color: rgba(119, 116, 116, 0.699);
     text-align: center;
-    display: none;
-    width: 400px;
-    height: 400px;
-    max-width: 80%;
-    background-color: lightslategray;
-    border-radius: 4px;
-    padding: 10px;
+    width: 80%;
+    border-radius: 30px;
+    padding: 20px;
     box-shadow: 0 0 10px 1px;
-    opacity: 0,2;
-    
+    font-size: 20px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    display: none;
+    color: white;
+}
+
+
+#btn_start{
+    position: relative;
+    border-color: rgba(190, 184, 184, 0.664);
+    background-color: rgb(23, 41, 100);
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 0,7rem;
+    margin: 3px;
 }
 
 #playAgain{
-    
+    position: relative;
+    border-color: rgba(190, 184, 184, 0.664);
+    background-color: rgb(23, 41, 100);
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 0,7rem;
+    margin: 3px;
+
 }

@@ -17,24 +17,24 @@
 
     <div class="container">
         <div id="question-container"></div>
-        <div id="startgame"><input type="text" id="name" placeholder="skriv in ditt namn">
-            <input type="number" id="howManyQ" min="1" max="10">
-            <button id="btn_start">Startgame</button>
-            <p>Spelinstruktioner</p>
+        <div id="startgame"><input type="text" id="name" placeholder="Your name" maxlength="12">
+            <input type="number" id="howManyQ" min="1" max="10" placeholder="1-10">
+            <button id="btn_start">Start</button>
+            <p>Game instructions</p>
             <hr style="margin-bottom: 20px">
-            <p>Skriv in ditt namn och välj mellan 1-10 frågor. Vissa frågor kan ha flera rätta svar, detta ser du enkelt med hjälp av att du kan välja flera checkboxes. För att få poäng måste du svara rätt på alla tillgängliga svarsalternativ!  </p>
+            <p>Write your name in the inputfield and choose how many questions you want to answer. Some of the questions have more than 1 correct answer. Select all the right answers to get points. LETS GO!  </p>
 
         </div>
         <div id="showquestion">
             <p id="playername"></p>
             <p id="category"></p>
             <hr style="margin-bottom: 20px">
-            <div id="question">frågor</div>
+            <div id="question">Questions</div>
             <div id="answer-btns" class="btn-grid">
-                <label> <input type="checkbox" class="checkboxes" id="checkbox0"><span id="a1">fråga 1</span></label>
-                <label> <input type="checkbox" class="checkboxes" id="checkbox1"><span id="a2">fråga 2</span></label>
-                <label> <input type="checkbox" class="checkboxes" id="checkbox2"><span id="a3">fråga 3</span></label>
-                <label> <input type="checkbox" class="checkboxes" id="checkbox3"><span id="a4">fråga 4</span></label>
+                <label> <input type="checkbox" class="checkboxes" id="checkbox0"><span id="a1">Q1</span></label>
+                <label> <input type="checkbox" class="checkboxes" id="checkbox1"><span id="a2">Q2</span></label>
+                <label> <input type="checkbox" class="checkboxes" id="checkbox2"><span id="a3">Q3</span></label>
+                <label> <input type="checkbox" class="checkboxes" id="checkbox3"><span id="a4">Q4</span></label>
             </div>
 
 
@@ -43,7 +43,7 @@
             <div id="endgame"><button id="end-btn">End</button></div>
             
             <hr style="margin-bottom: 20px">
-            <p id="progress">Question x of y.</p>
+            <p id="progress"></p>
             <p id="points"></p>
        
         </div>
@@ -53,7 +53,7 @@
     <div id="show-points">
         <h1 id="pointsp"></h1>
         
-         <button id="playAgain" href="" onclick="document.location.reload()">Avsluta och spela igen</button></p>
+         <button id="playAgain"  href="" onclick="document.location.reload()">End and play again</button></p>
     
     </div>
 

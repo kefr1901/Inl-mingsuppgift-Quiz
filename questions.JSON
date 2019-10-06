@@ -3,11 +3,11 @@
 [
     {
         "category": "Tires",
-        "question": "Which of these objects has only 2 tiers? ",
+        "question": "Which of these objects has only 2 tires? ",
         "answers": [
-            "Bike", "Motorcyckel", "Moped", "Voi-Scooter"
+            "Bike", "Motorcycle", "Moped", "Voi-Scooter"
         ],
-        "correct": [2,3]
+        "correct": [0,1,2,3]
     },
     {
         "category": "Math",
@@ -40,7 +40,7 @@
                 "answers": [
                     "Public club", "Public bar", "Public house", "Public Bistro"
                 ],
-                "correct": [2]
+                "correct": [1]
             },
             {
                 "category": "Animals",
@@ -56,7 +56,7 @@
                         "answers": [
                             "Volvo", "Fiat", "Toyota", "Lexus"
                         ],
-                        "correct": [1]
+                        "correct": [2]
                     },
                     {
                         "category": "Animals",
